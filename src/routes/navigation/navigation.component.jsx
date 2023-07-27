@@ -11,7 +11,8 @@ import { CartContext } from "../../contexts/cart.context";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import './navigation.styles.scss';
+
+import {NavigationContainer, NavLinks, NavLink, LogoContainer} from './navigation.styles';
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext);
@@ -20,28 +21,29 @@ const Navigation = () => {
     return (
         
         <Fragment>
-            <div className="navigation">
-                <Link className="logo-container" to='/'>
+        <NavigationContainer>
+             
+                 <LogoContainer to='/'>
                     <CrwnLogo className='logo' />
-                </Link>
+                 </LogoContainer>
 
-                <div className="nav-links-container">
-                    <Link className="nav-link" to='/shop'>
-                        SHOP
-                    </Link>
-                    {currentUser ? (
-                        <span className="nav-link" onClick={signOutUser}>
-                            SIGN OUT
-                        </span>
+                 <NavLinks>
+                     <NavLink to='/shop'>
+                         SHOP
+                     </NavLink>
+                     {currentUser ? (
+                         <NavLink as = 'span' onClick={signOutUser}>
+                          SIGN OUT
+                         </NavLink>
                     ) : (
-                        <Link className="nav-link" to='/auth'>
-                            SIGN IN
-                        </Link>
-                    )}
-                    <CartICon />
-                </div>
-                {isCartOpen && <CartDropdown/>}
-            </div>
+                         <NavLink to='/auth'>
+                             SIGN IN
+                         </NavLink>
+                     )}
+                     <CartICon />
+                 </NavLinks>
+                 {isCartOpen && <CartDropdown/>}
+            </NavigationContainer>
             <Outlet />
         </Fragment>
 
