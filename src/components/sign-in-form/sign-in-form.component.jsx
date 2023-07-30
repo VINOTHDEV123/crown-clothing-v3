@@ -70,7 +70,7 @@ const SignInForm = () => {
             <form onSubmit={handleSubmit}>
 
                 <FormInput
-                    label='Email'
+                    label='email'
                     type="email"
                     required onChange={handleChange}
                     name='email'
