@@ -46,7 +46,7 @@ export const CartContext = createContext({
 });
 
 const INITIAL_STATE = {
-  isCartOpen: true,
+  isCartOpen: false,
   cartItems: [],
   cartItemsCount: 0,
   cartTotal: 0
@@ -56,7 +56,7 @@ const cartReducer = (state, action) => {
   const {type, payload} = action;
 
   switch(type) {
-    case 'SETCART_ITEMS':
+    case 'SET_CART_ITEMS':
       return{
         ...state,
         ...payload
@@ -84,7 +84,9 @@ export const CartProvider = ({ children }) => {
       0
     );
 
-    dispatch({type: 'SET_CART_ITEMS', payload: { 
+    dispatch({
+      type: 'SET_CART_ITEMS', 
+      payload: { 
       cartItems: newCartItems, 
       cartTotal: newCartTotal, 
       cartItemsCount: newCartCount
