@@ -46,7 +46,7 @@ export const CartContext = createContext({
 });
 
 const INITIAL_STATE = {
-  isCartOpen: false,
+  isCartOpen: true,
   cartItems: [],
   cartItemsCount: 0,
   cartTotal: 0
