@@ -51,7 +51,7 @@ const CART_ACTION_TYPES = {
 }
 
 const INITIAL_STATE = {
-  isCartOpen: true,
+  isCartOpen: false,
   cartItems: [],
   cartCount: 0,
   cartTotal: 0
